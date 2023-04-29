@@ -10,7 +10,7 @@
     "check-pretty": "prettier --check .",
     "lint": "solhint \"contracts/**/*.sol\"",
     "compile": "forge build --force",
-    "test-foundry": "forge test --fork-url $NODE_RPC --fork-block-number 8829699"
+    "test-foundry": "NODE_RPC=https://goerli.infura.io/v3/16a8be88795540b9b3903d8de0f7baa5 forge test --fork-url $NODE_RPC --fork-block-number 8829699"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^1.0.1",

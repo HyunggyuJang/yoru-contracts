@@ -39,7 +39,7 @@ contract YoruTest is Test {
 
     function testSendEth() public {
         uint256 amount = 1 ether;
-        vm.expectEmit(true, true, true, true);
+        vm.expectEmit();
         emit Announcement(recipient, amount, ETH_TOKEN_PLACHOLDER, bytes32(0), bytes32(0));
         vm.prank(user);
         yoru.sendEth{ value: amount }(payable(recipient), bytes32(0), bytes32(0));
@@ -47,7 +47,7 @@ contract YoruTest is Test {
 
     function testSendERC20() public {
         uint256 amount = 100;
-        vm.expectEmit(true, true, true, true);
+        vm.expectEmit();
         emit Announcement(recipient, amount, address(erc20Token), bytes32(0), bytes32(0));
         vm.prank(user);
         yoru.sendERC20(payable(recipient), address(erc20Token), amount, bytes32(0), bytes32(0));
@@ -59,7 +59,7 @@ contract YoruTest is Test {
         vm.prank(user);
         erc721Token.approve(address(yoru), tokenId);
 
-        vm.expectEmit(true, true, true, true);
+        vm.expectEmit();
         emit Announcement(recipient, tokenId, address(erc721Token), bytes32(0), bytes32(0));
         vm.prank(user);
         yoru.sendERC20(payable(recipient), address(erc721Token), tokenId, bytes32(0), bytes32(0));
